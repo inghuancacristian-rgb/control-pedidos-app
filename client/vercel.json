@@ -1,0 +1,15 @@
+{
+  "framework": "vite",
+  "buildCommand": "cd ../../ && pnpm build",
+  "installCommand": "pnpm install",
+  "devCommand": "pnpm dev",
+  "environmentVariables": {
+    "NODE_ENV": "production"
+  },
+  "rewrites": [
+    {
+      "source": "/api/trpc/:path*",
+      "destination": "https://control-pedidos-backend.railway.app/api/trpc/:path*"
+    }
+  ]
+}

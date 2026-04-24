@@ -1,0 +1,9 @@
+{
+  "query": "UPDATE products SET category = 'finished_product' WHERE category IN ('Sabores', 'sabores');\nUPDATE products SET category = 'raw_material' WHERE category IN ('Leche', 'leche');\nUPDATE products SET category = 'supplies' WHERE category IN ('Botellas', 'botellas', 'Suministros', 'suministros');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway05.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uGP18Gtx1WQ3Rv.root --database TTSecxitauckX3ffWcxXhf --execute UPDATE products SET category = 'finished_product' WHERE category IN ('Sabores', 'sabores');\nUPDATE products SET category = 'raw_material' WHERE category IN ('Leche', 'leche');\nUPDATE products SET category = 'supplies' WHERE category IN ('Botellas', 'botellas', 'Suministros', 'suministros');",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 477
+}

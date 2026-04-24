@@ -1,0 +1,417 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap");
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --primary: oklch(0.34 0.05 257);
+  --primary-foreground: oklch(0.985 0.003 255);
+  --sidebar-primary: oklch(0.38 0.05 255);
+  --sidebar-primary-foreground: oklch(0.985 0.003 255);
+  --chart-1: oklch(0.68 0.05 247);
+  --chart-2: oklch(0.58 0.05 235);
+  --chart-3: oklch(0.48 0.04 220);
+  --chart-4: oklch(0.55 0.03 198);
+  --chart-5: oklch(0.73 0.02 255);
+  --radius: 1rem;
+  --background: oklch(0.978 0.003 255);
+  --foreground: oklch(0.23 0.018 255);
+  --card: oklch(0.995 0.002 255 / 90%);
+  --card-foreground: oklch(0.23 0.018 255);
+  --popover: oklch(0.995 0.002 255 / 96%);
+  --popover-foreground: oklch(0.23 0.018 255);
+  --secondary: oklch(0.95 0.006 252);
+  --secondary-foreground: oklch(0.31 0.02 248);
+  --muted: oklch(0.958 0.003 252);
+  --muted-foreground: oklch(0.5 0.013 252);
+  --accent: oklch(0.936 0.01 248);
+  --accent-foreground: oklch(0.28 0.02 248);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.89 0.006 248 / 72%);
+  --input: oklch(0.89 0.006 248 / 92%);
+  --ring: oklch(0.43 0.05 255);
+  --sidebar: oklch(0.985 0.002 255 / 95%);
+  --sidebar-foreground: oklch(0.23 0.018 255);
+  --sidebar-accent: oklch(0.94 0.009 248);
+  --sidebar-accent-foreground: oklch(0.28 0.02 248);
+  --sidebar-border: oklch(0.89 0.006 248 / 68%);
+  --sidebar-ring: oklch(0.43 0.05 255);
+}
+
+.dark {
+  --primary: oklch(0.68 0.05 248);
+  --primary-foreground: oklch(0.2 0.02 250);
+  --sidebar-primary: oklch(0.63 0.05 246);
+  --sidebar-primary-foreground: oklch(0.2 0.02 250);
+  --background: oklch(0.2 0.015 255);
+  --foreground: oklch(0.95 0.004 255);
+  --card: oklch(0.24 0.014 255 / 86%);
+  --card-foreground: oklch(0.95 0.004 255);
+  --popover: oklch(0.24 0.014 255 / 96%);
+  --popover-foreground: oklch(0.95 0.004 255);
+  --secondary: oklch(0.29 0.012 248);
+  --secondary-foreground: oklch(0.91 0.004 255);
+  --muted: oklch(0.29 0.012 252);
+  --muted-foreground: oklch(0.77 0.015 248);
+  --accent: oklch(0.32 0.018 244);
+  --accent-foreground:  oklch(0.97 0.004 255);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(1 0 0 / 11%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.62 0.05 246);
+  --chart-1: oklch(0.7 0.05 247);
+  --chart-2: oklch(0.62 0.05 235);
+  --chart-3: oklch(0.54 0.04 220);
+  --chart-4: oklch(0.58 0.03 198);
+  --chart-5: oklch(0.75 0.02 255);
+  --sidebar: oklch(0.24 0.014 255 / 94%);
+  --sidebar-foreground: oklch(0.95 0.004 255);
+  --sidebar-accent: oklch(0.32 0.018 244);
+  --sidebar-accent-foreground:  oklch(0.98 0.004 255);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.62 0.05 246);
+}
+
+@layer base {
+  html {
+    font-family: "Manrope", ui-sans-serif, system-ui, sans-serif;
+    color-scheme: light;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Sora", "Manrope", ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: -0.03em;
+  }
+
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(circle at top left, rgba(51, 65, 85, 0.14), transparent 28%),
+      radial-gradient(circle at top right, rgba(71, 85, 105, 0.12), transparent 24%),
+      linear-gradient(180deg, rgba(248,250,252,0.96) 0%, rgba(242,246,251,0.98) 55%, rgba(237,242,248,1) 100%);
+    background-attachment: fixed;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--primary) 26%, white);
+    color: var(--foreground);
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}
+
+@utility glass-panel {
+  border-radius: 1.5rem;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 20px 60px -28px rgba(15, 23, 42, 0.35);
+  backdrop-filter: blur(24px);
+}
+
+@utility hero-panel {
+  border-radius: 1.5rem;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.8);
+  background-image: linear-gradient(135deg, rgba(30, 41, 59, 0.07), transparent 42%), linear-gradient(160deg, rgba(71, 85, 105, 0.08), rgba(255, 255, 255, 0.86) 58%);
+  box-shadow: 0 20px 60px -28px rgba(15, 23, 42, 0.35);
+  backdrop-filter: blur(24px);
+}
+
+@utility section-card {
+  border-radius: 1.5rem;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 20px 60px -28px rgba(15, 23, 42, 0.35);
+  backdrop-filter: blur(24px);
+}
+
+@utility metric-card {
+  border-radius: 1.5rem;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 1.25rem;
+  box-shadow: 0 20px 60px -28px rgba(15, 23, 42, 0.35);
+  backdrop-filter: blur(24px);
+}
+
+@utility kpi-value {
+  font-size: 1.875rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+
+@utility soft-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@utility touch-card {
+  transition-property: all;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@utility touch-card-hover {
+  --tw-translate-y: -0.25rem;
+  box-shadow: 0 22px 44px -24px rgba(15, 23, 42, 0.4);
+}
+
+@utility pill-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 0.25rem;
+  box-shadow: 0 14px 30px -18px rgba(15, 23, 42, 0.3);
+  backdrop-filter: blur(24px);
+}
+
+@utility status-chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.75);
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: oklch(0.5 0.013 252);
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.1);
+}
+
+@utility table-shell {
+  border-radius: 1.4rem;
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 18px 40px -30px rgba(15, 23, 42, 0.38);
+  backdrop-filter: blur(24px);
+  overflow: hidden;
+}
+
+@utility page-shell {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  padding: 1rem;
+}
+
+@utility page-container {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 80rem;
+}
+
+/* Tablet-specific optimizations (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  html {
+    font-size: 15px;
+  }
+
+  .page-shell {
+    padding: 1.25rem;
+  }
+
+  /* Better touch targets for tablets */
+  button,
+  [role="button"],
+  .btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Larger inputs for tablet */
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+    min-height: 44px;
+  }
+
+  /* Improve table readability on tablets - allow horizontal scroll */
+  .table-scroll {
+    font-size: 0.875rem;
+    overflow-x: auto;
+  }
+
+  /* Larger cards on tablet */
+  .glass-panel,
+  .section-card,
+  .metric-card {
+    border-radius: 1.25rem;
+  }
+
+  /* Better grid for tablet - 2 columns */
+  .soft-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Larger dialogs for tablet */
+  [role="dialog"] > div {
+    max-width: min(90vw, 700px);
+  }
+
+  /* Sidebar: auto-collapse to icons on tablet */
+  .sidebar {
+    width: 72px;
+    transition: width 0.2s ease;
+  }
+
+  /* Charts better sized for tablet */
+  .recharts-wrapper {
+    height: 280px !important;
+  }
+
+  /* Form layouts: 2 columns on tablet */
+  .form-grid-tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large tablet / small laptop (1024px - 1280px) */
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .soft-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .page-container {
+    max-width: 6xl;
+  }
+}
+
+/* Ensure proper touch sizing on all mobile/tablet devices */
+@media (pointer: coarse) {
+  button,
+  [role="button"],
+  input[type="checkbox"],
+  input[type="radio"],
+  select {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Larger tap targets */
+  .btn,
+  .btn-sm {
+    padding: 0.75rem 1.25rem;
+  }
+}
+
+/* Mobile table cards - transform tables into card layout on small screens */
+.table-card-mobile {
+  @apply grid gap-3 p-3;
+}
+
+.table-card-mobile .table-card-item {
+  @apply glass-panel rounded-2xl p-4 shadow-sm;
+}
+
+.table-card-mobile .table-card-row {
+  @apply flex justify-between items-center py-2 border-b border-border/30 last:border-0;
+}
+
+.table-card-mobile .table-card-label {
+  @apply text-xs font-medium text-muted-foreground uppercase tracking-wide;
+}
+
+.table-card-mobile .table-card-value {
+  @apply text-sm font-semibold text-foreground;
+}
+
+/* Dialog improvements for mobile */
+@media (max-width: 767px) {
+  [role="dialog"] > div {
+    @apply max-h-[90vh];
+  }
+
+  .dialog-mobile-full {
+    @apply w-screen max-w-[100vw] rounded-none;
+  }
+
+  .dialog-mobile-sheet {
+    @apply max-w-[calc(100vw-2rem)];
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "query": "SELECT id, code, name, category FROM products ORDER BY createdAt DESC LIMIT 15;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway05.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uGP18Gtx1WQ3Rv.root --database TTSecxitauckX3ffWcxXhf --execute SELECT id, code, name, category FROM products ORDER BY createdAt DESC LIMIT 15;",
+  "rows": [
+    {
+      "id": "30030",
+      "code": "CAF",
+      "name": "CAFE",
+      "category": "finished_product"
+    },
+    {
+      "id": "30029",
+      "code": "KEF -LECHE",
+      "name": "KEFIR DE COCO",
+      "category": "finished_product"
+    },
+    {
+      "id": "30028",
+      "code": "ACE",
+      "name": "ACEITE DE OREGANO",
+      "category": "finished_product"
+    },
+    {
+      "id": "30027",
+      "code": "AC ",
+      "name": "ACEITE DE MUÑA",
+      "category": "finished_product"
+    },
+    {
+      "id": "30008",
+      "code": "KEF - LECHE",
+      "name": "kefir coco",
+      "category": "finished_product"
+    },
+    {
+      "id": "1",
+      "code": "COCO",
+      "name": "Coco",
+      "category": "finished_product"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\tcode\tname\tcategory\n30030\tCAF\tCAFE\tfinished_product\n30029\tKEF -LECHE\tKEFIR DE COCO\tfinished_product\n30028\tACE\tACEITE DE OREGANO\tfinished_product\n30027\tAC \tACEITE DE MUÑA\tfinished_product\n30008\tKEF - LECHE\tkefir coco\tfinished_product\n1\tCOCO\tCoco\tfinished_product\n",
+  "stderr": "",
+  "execution_time_ms": 361
+}

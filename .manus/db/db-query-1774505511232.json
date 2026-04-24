@@ -1,0 +1,38 @@
+{
+  "query": "SELECT id, orderNumber, customerId, totalPrice, status FROM orders ORDER BY id DESC LIMIT 10;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway05.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uGP18Gtx1WQ3Rv.root --database TTSecxitauckX3ffWcxXhf --execute SELECT id, orderNumber, customerId, totalPrice, status FROM orders ORDER BY id DESC LIMIT 10;",
+  "rows": [
+    {
+      "id": "30002",
+      "orderNumber": "ORD-005",
+      "customerId": "30002",
+      "totalPrice": "29000",
+      "status": "pending"
+    },
+    {
+      "id": "30001",
+      "orderNumber": "004",
+      "customerId": "30001",
+      "totalPrice": "5000",
+      "status": "pending"
+    },
+    {
+      "id": "2",
+      "orderNumber": "002",
+      "customerId": "2",
+      "totalPrice": "10000",
+      "status": "pending"
+    },
+    {
+      "id": "1",
+      "orderNumber": "001",
+      "customerId": "1",
+      "totalPrice": "100",
+      "status": "pending"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\torderNumber\tcustomerId\ttotalPrice\tstatus\n30002\tORD-005\t30002\t29000\tpending\n30001\t004\t30001\t5000\tpending\n2\t002\t2\t10000\tpending\n1\t001\t1\t100\tpending\n",
+  "stderr": "",
+  "execution_time_ms": 347
+}

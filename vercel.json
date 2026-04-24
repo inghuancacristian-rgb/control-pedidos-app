@@ -1,0 +1,15 @@
+{
+  "buildCommand": "pnpm build",
+  "installCommand": "pnpm install",
+  "framework": "vite",
+  "buildEnv": {
+    "NODE_ENV": "production"
+  },
+  "env": {
+    "VITE_API_URL": "https://your-backend.railway.app/api/trpc",
+    "VITE_WS_URL": "wss://your-backend.railway.app"
+  },
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "https://your-backend.railway.app/api/$1" }
+  ]
+}

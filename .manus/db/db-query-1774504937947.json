@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO inventory (productId, quantity, minStock, lastUpdated) \nSELECT id, 0, 5, NOW() FROM products \nWHERE id NOT IN (SELECT DISTINCT productId FROM inventory);",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway05.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uGP18Gtx1WQ3Rv.root --database TTSecxitauckX3ffWcxXhf --execute INSERT INTO inventory (productId, quantity, minStock, lastUpdated) \nSELECT id, 0, 5, NOW() FROM products \nWHERE id NOT IN (SELECT DISTINCT productId FROM inventory);",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 372
+}

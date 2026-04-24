@@ -1,0 +1,42 @@
+{
+  "query": "SELECT o.id, o.orderNumber, o.customerId, c.name, o.totalPrice, o.status \nFROM orders o \nLEFT JOIN customers c ON o.customerId = c.id \nORDER BY o.id DESC;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway05.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 2uGP18Gtx1WQ3Rv.root --database TTSecxitauckX3ffWcxXhf --execute SELECT o.id, o.orderNumber, o.customerId, c.name, o.totalPrice, o.status \nFROM orders o \nLEFT JOIN customers c ON o.customerId = c.id \nORDER BY o.id DESC;",
+  "rows": [
+    {
+      "id": "30002",
+      "orderNumber": "ORD-005",
+      "customerId": "30002",
+      "name": "PARCHE",
+      "totalPrice": "29000",
+      "status": "pending"
+    },
+    {
+      "id": "30001",
+      "orderNumber": "004",
+      "customerId": "30001",
+      "name": "JUAN",
+      "totalPrice": "5000",
+      "status": "pending"
+    },
+    {
+      "id": "2",
+      "orderNumber": "002",
+      "customerId": "2",
+      "name": "ANDREA",
+      "totalPrice": "10000",
+      "status": "pending"
+    },
+    {
+      "id": "1",
+      "orderNumber": "001",
+      "customerId": "1",
+      "name": "CRISTIAN HUANCA",
+      "totalPrice": "100",
+      "status": "pending"
+    }
+  ],
+  "messages": [],
+  "stdout": "id\torderNumber\tcustomerId\tname\ttotalPrice\tstatus\n30002\tORD-005\t30002\tPARCHE\t29000\tpending\n30001\t004\t30001\tJUAN\t5000\tpending\n2\t002\t2\tANDREA\t10000\tpending\n1\t001\t1\tCRISTIAN HUANCA\t100\tpending\n",
+  "stderr": "",
+  "execution_time_ms": 346
+}
