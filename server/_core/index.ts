@@ -76,14 +76,24 @@ async function startServer() {
   app.use(express.urlencoded({ limit: "50mb", extended: true }));
   app.use("/uploads", express.static(uploadsDir));
 
-  // CORS - permitir todos los orígenes en producción (para Netlify/Vercel)
+  // CORS - permitir orígenes específicos de producción
+  const ALLOWED_ORIGINS = [
+    "https://splendorous-medovik-df1a3c.netlify.app",
+    "https://control-pedidos-app-production.up.railway.app",
+  ];
   app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
+    const origin = req.headers.origin;
+    if (ALLOWED_ORIGINS.includes(origin || "")) {
+      res.header("Access-Control-Allow-Origin", origin);
+    }
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
     res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    res.header("Access-Control-Allow-Credentials", "true");
     if (req.method === "OPTIONS") {
       return res.sendStatus(200);
     }
+    next();
+  });
     next();
   });
 
