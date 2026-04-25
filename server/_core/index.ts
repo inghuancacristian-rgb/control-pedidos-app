@@ -80,6 +80,7 @@ async function startServer() {
   const ALLOWED_ORIGINS = [
     "https://splendorous-medovik-df1a3c.netlify.app",
     "https://control-pedidos-app-production.up.railway.app",
+    "https://control-pedidos-app.pages.dev",
   ];
   app.use((req, res, next) => {
     const origin = req.headers.origin;
