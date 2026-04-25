@@ -44,6 +44,7 @@ export async function createSession(userId: number): Promise<string> {
     id: sessionId,
     userId,
     expiresAt,
+    createdAt: new Date(),
   });
 
   return sessionId;
