@@ -263,7 +263,13 @@ class SDKServer {
   async authenticateRequest(req: Request): Promise<User> {
     // Get cookies
     const cookies = this.parseCookies(req.headers.cookie);
-    const sessionCookie = cookies.get(COOKIE_NAME);
+    let sessionCookie = cookies.get(COOKIE_NAME);
+
+    // Also check Authorization header (for cross-origin auth)
+    const authHeader = req.headers.get("Authorization");
+    if (authHeader?.startsWith("Bearer ") && !sessionCookie) {
+      sessionCookie = authHeader.substring(7);
+    }
 
     if (!sessionCookie) {
       throw ForbiddenError("Invalid session cookie");

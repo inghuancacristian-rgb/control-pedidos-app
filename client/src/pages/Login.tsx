@@ -16,10 +16,13 @@ export default function Login() {
   const utils = trpc.useUtils();
 
   const loginMutation = trpc.auth.loginTraditional.useMutation({
-    onSuccess: async () => {
+    onSuccess: async (data) => {
+      // Store session token in localStorage for cross-origin auth
+      if (data?.sessionToken) {
+        localStorage.setItem("sessionToken", data.sessionToken);
+      }
       toast.success("Sesion iniciada correctamente, redireccionando...");
       await utils.auth.me.invalidate();
-      // Force reload to ensure session is set
       setTimeout(() => {
         window.location.href = "/";
       }, 500);

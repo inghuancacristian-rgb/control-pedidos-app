@@ -44,8 +44,14 @@ const trpcClient = trpc.createClient({
       url: "https://control-pedidos-app-production.up.railway.app/api/trpc",
       transformer: superjson,
       fetch(input, init) {
+        // Get session token from localStorage for cross-origin auth
+        const sessionToken = localStorage.getItem("sessionToken");
         return globalThis.fetch(input, {
           ...(init ?? {}),
+          headers: {
+            ...(init?.headers || {}),
+            ...(sessionToken ? { Authorization: `Bearer ${sessionToken}` } : {}),
+          },
         });
       },
     }),

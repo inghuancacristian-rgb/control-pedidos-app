@@ -50,15 +50,18 @@ export const appRouter = router({
         }
 
         const sessionId = await createSession(user.id);
-        const cookieOptions = getSessionCookieOptions(ctx.req);
 
+        // Also set cookie for browser (fallback)
+        const cookieOptions = getSessionCookieOptions(ctx.req);
         ctx.res.cookie(COOKIE_NAME, sessionId, {
           ...cookieOptions,
           maxAge: 30 * 24 * 60 * 60 * 1000,
         });
 
+        // Return session token for localStorage (for cross-origin auth)
         return {
           success: true,
+          sessionToken: sessionId,
           user: {
             id: user.id,
             username: user.username,
