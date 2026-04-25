@@ -17,9 +17,12 @@ export default function Login() {
 
   const loginMutation = trpc.auth.loginTraditional.useMutation({
     onSuccess: async () => {
-      toast.success("Sesion iniciada correctamente");
+      toast.success("Sesion iniciada correctamente, redireccionando...");
       await utils.auth.me.invalidate();
-      window.location.href = "/";
+      // Force reload to ensure session is set
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 500);
     },
     onError: (error: any) => {
       toast.error(error.message || "Error al iniciar sesion");
