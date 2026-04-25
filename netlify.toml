@@ -4,11 +4,11 @@
   publish = "dist/public"
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+from = "/*"
+to = "/index.html"
+status = 200
 
 [[redirects]]
-  from = "/api/*"
-  to = "https://control-pedidos-app-production.up.railway.app/api/:splat"
-  status = 200
+from = "/api/*"
+to = "https://control-pedidos-app-production.up.railway.app/api/:splat"
+status = 307
