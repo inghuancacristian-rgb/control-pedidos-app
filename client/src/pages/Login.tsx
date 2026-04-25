@@ -23,9 +23,9 @@ export default function Login() {
         localStorage.setItem("sessionToken", data.sessionToken);
         console.log("Session token stored:", data.sessionToken);
       }
-      toast.success("Sesion iniciada correctamente, redireccionando...");
-      // Force page reload with cache bypass
-      window.location.href = window.location.origin + "/";
+      toast.success("Sesion iniciada correctamente!");
+      // Redirect immediately without waiting
+      window.location.replace(window.location.origin + "/");
     },
     onError: (error: any) => {
       toast.error(error.message || "Error al iniciar sesion");
