@@ -17,15 +17,15 @@ export default function Login() {
 
   const loginMutation = trpc.auth.loginTraditional.useMutation({
     onSuccess: async (data) => {
+      console.log("Login successful, data:", data);
       // Store session token in localStorage for cross-origin auth
       if (data?.sessionToken) {
         localStorage.setItem("sessionToken", data.sessionToken);
+        console.log("Session token stored:", data.sessionToken);
       }
       toast.success("Sesion iniciada correctamente, redireccionando...");
-      await utils.auth.me.invalidate();
-      setTimeout(() => {
-        window.location.href = "/";
-      }, 500);
+      // Force page reload with cache bypass
+      window.location.href = window.location.origin + "/";
     },
     onError: (error: any) => {
       toast.error(error.message || "Error al iniciar sesion");
