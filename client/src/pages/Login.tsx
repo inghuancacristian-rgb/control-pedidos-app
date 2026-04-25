@@ -19,7 +19,7 @@ export default function Login() {
     onSuccess: async () => {
       toast.success("Sesion iniciada correctamente");
       await utils.auth.me.invalidate();
-      setTimeout(() => setLocation("/"), 100);
+      window.location.href = "/";
     },
     onError: (error: any) => {
       toast.error(error.message || "Error al iniciar sesion");
