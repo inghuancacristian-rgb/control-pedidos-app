@@ -1,0 +1,9 @@
+[build]
+base = "proyecto.claude/control-pedidos-app/client"
+command = "pnpm run build"
+publish = "dist/public"
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
