@@ -94,8 +94,6 @@ async function startServer() {
     }
     next();
   });
-    next();
-  });
 
   // Aplicar rate limiting a todas las rutas API
   app.use("/api", limiter);
