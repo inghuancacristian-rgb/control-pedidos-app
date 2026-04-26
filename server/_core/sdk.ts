@@ -280,9 +280,13 @@ class SDKServer {
 
     // Try traditional session first (sessionId is a simple string, not JWT)
     try {
+      console.log("[Auth] Looking for session:", sessionCookie);
       const session = await getAuthSession(sessionCookie);
+      console.log("[Auth] Session found:", session);
       if (session) {
+        console.log("[Auth] Fetching user by ID:", session.userId);
         const fetchedUser = await db.getUserById(session.userId);
+        console.log("[Auth] User fetched:", fetchedUser);
         if (fetchedUser) {
           user = fetchedUser;
           console.log("[Auth] Traditional session verified for user:", user.id, user.username);
