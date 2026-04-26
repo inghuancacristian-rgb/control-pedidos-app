@@ -54,9 +54,7 @@ export async function createSession(userId: number): Promise<string> {
  * Obtiene una sesión válida
  */
 export async function getSession(sessionId: string) {
-  const db = await getDb();
-  
-  // Primero buscar en el mock (modo demo)
+  // Always check mock sessions first (for demo mode)
   const mockSession = MOCK_SESSIONS.get(sessionId);
   if (mockSession) {
     if (mockSession.expiresAt < new Date()) {
@@ -66,6 +64,7 @@ export async function getSession(sessionId: string) {
     return mockSession;
   }
 
+  const db = await getDb();
   if (!db) return undefined;
 
   const result = await db
