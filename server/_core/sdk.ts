@@ -265,9 +265,9 @@ class SDKServer {
     const cookies = this.parseCookies(req.headers.cookie);
     let sessionCookie = cookies.get(COOKIE_NAME);
 
-    // Also check Authorization header (for cross-origin auth)
+    // Also check Authorization header (for cross-origin auth from Cloudflare)
     const authHeader = req.headers.get("Authorization");
-    if (authHeader?.startsWith("Bearer ") && !sessionCookie) {
+    if (authHeader?.startsWith("Bearer ")) {
       sessionCookie = authHeader.substring(7);
     }
 
