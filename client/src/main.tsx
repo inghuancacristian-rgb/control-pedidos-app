@@ -41,7 +41,7 @@ queryClient.getMutationCache().subscribe(event => {
 const trpcClient = trpc.createClient({
   links: [
     httpBatchLink({
-      url: "http://localhost:3001/api/trpc",
+      url: import.meta.env.VITE_API_URL || "http://localhost:3001/api/trpc",
       transformer: superjson,
       fetch(input, init) {
         // Get session token from localStorage for cross-origin auth
