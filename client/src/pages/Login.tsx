@@ -17,15 +17,12 @@ export default function Login() {
 
   const loginMutation = trpc.auth.loginTraditional.useMutation({
     onSuccess: async (data) => {
-      console.log("Login successful, data:", data);
-      // Store session token in localStorage for cross-origin auth
+      console.log("Login successful!", data);
       if (data?.sessionToken) {
         localStorage.setItem("sessionToken", data.sessionToken);
-        console.log("Session token stored:", data.sessionToken);
       }
-      toast.success("Sesion iniciada correctamente!");
-      // Redirect immediately without waiting
-      window.location.replace(window.location.origin + "/");
+      // Force full page reload to home
+      window.location.href = "https://control-pedidos-app.pages.dev/";
     },
     onError: (error: any) => {
       toast.error(error.message || "Error al iniciar sesion");
