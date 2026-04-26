@@ -41,7 +41,7 @@ queryClient.getMutationCache().subscribe(event => {
 const trpcClient = trpc.createClient({
   links: [
     httpBatchLink({
-      url: "https://control-pedidos-app-production.up.railway.app/api/trpc",
+      url: "http://localhost:3001/api/trpc",
       transformer: superjson,
       fetch(input, init) {
         // Get session token from localStorage for cross-origin auth

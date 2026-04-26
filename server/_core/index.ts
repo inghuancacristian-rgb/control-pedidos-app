@@ -78,9 +78,11 @@ async function startServer() {
 
   // CORS - permitir orígenes específicos de producción
   const ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://localhost:3000",
+    "https://control-pedidos-app.pages.dev",
     "https://splendorous-medovik-df1a3c.netlify.app",
     "https://control-pedidos-app-production.up.railway.app",
-    "https://control-pedidos-app.pages.dev",
   ];
   app.use((req, res, next) => {
     const origin = req.headers.origin;
