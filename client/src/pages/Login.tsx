@@ -22,7 +22,7 @@ export default function Login() {
         localStorage.setItem("sessionToken", data.sessionToken);
       }
       // Force full page reload to home
-      window.location.href = "https://control-pedidos-app.pages.dev/";
+      window.location.href = "/";
     },
     onError: (error: any) => {
       toast.error(error.message || "Error al iniciar sesion");
